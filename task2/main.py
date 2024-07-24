@@ -14,13 +14,6 @@ def insert(root, key):
             root.right = insert(root.right, key)
     return root
 
-def search(root, key):
-    if root is None or root.val == key:
-        return root
-    if key < root.val:
-        return search(root.left, key)
-    return search(root.right, key)
-
 def search_min_value(root):
     if root is None:
         return None
@@ -37,14 +30,6 @@ root = insert(root, 4)
 root = insert(root, 7)
 root = insert(root, 6)
 root = insert(root, 8)
-
-# Пошук значення
-val =  4
-result = search(root, val)
-if result:
-    print(f"У дереві знайдено значення {result.val}")
-else:
-    print(f"У дереві не знайдено значення {val}")
 
 # Пошук найменшого значення
 min_value = search_min_value(root)

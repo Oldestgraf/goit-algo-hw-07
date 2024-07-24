@@ -14,13 +14,10 @@ def insert(root, key):
             root.right = insert(root.right, key)
     return root
 
-def search_max_value(root):
+def sum_tree_values(root):
     if root is None:
-        return None
-    current = root
-    while current.right is not None:
-        current = current.right
-    return current.val
+        return 0
+    return root.val + sum_tree_values(root.left) + sum_tree_values(root.right)
 
 # Test
 root = Node(5)
@@ -31,6 +28,5 @@ root = insert(root, 7)
 root = insert(root, 6)
 root = insert(root, 8)
 
-# Пошук найбільшого значення
-max_value = search_max_value(root)
-print(f"Найбільше значення у дереві: {max_value}")
+# Пошук суми всіх значень
+print(f"Сума всіх значень: {sum_tree_values(root)}")
